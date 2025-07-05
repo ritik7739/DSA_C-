@@ -1,0 +1,19 @@
+#include<bit/stdc++.h>
+using namespace std;
+
+
+string removeDuplicates(string s,int i,string ans, int map[26]){
+    
+    if(i==s.size()){
+        cout<<ans<<endl;
+        return;
+    }
+
+    int mapIndex=(int) (s[i]-'a');
+     if(map[mapIndex]){ //duplicates
+         return removeDuplicates(s,i+1,ans,map)
+     }else{  //not duplicates
+           map[mapIndex]=true;
+           removeDuplicates(s,i+1,ans+s[i],map); 
+     }
+}  
